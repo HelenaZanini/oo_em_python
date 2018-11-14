@@ -1,6 +1,7 @@
 class Conta():
-    def __init__(self, numero, saldo=0, limite=0):
+    def __init__(self, numero, cliente, saldo=0, limite=0):
         self.__numero = numero
+        self.cliente = cliente
         self.__saldo = saldo
         self.__limite = limite
 
@@ -40,3 +41,12 @@ class Conta():
         self.sacar(valor)
         conta_destino.depositar(valor)
         print("Valor de {} transferido para {} com sucesso".format(valor, favorecido.nome))
+
+    def __str__(self):
+        return f'Conta numero: {self.numero}, do cliente: {self.cliente}, saldo: {self.saldo}, limite: {self.limite}'
+
+class Conta_Corrente_Pessoa_Fisica(Conta):
+    pass
+
+class Conta_Corrente_Pessoa_Juridica(Conta):
+    pass
